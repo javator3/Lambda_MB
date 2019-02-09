@@ -22,6 +22,8 @@ public class Main {
         Consumer<Integer> integerConsumer = n -> System.out.println(n) ;
         numbers.forEach(integerConsumer);
 
+        numbers.forEach(s -> System.out.println(s
+        ));
         numbers.forEach(System.out::println);
 
         List<Movie> movies = Arrays.asList(
@@ -56,5 +58,17 @@ public class Main {
                 .filter(f -> f.getPrice() > 50)
                 .filter(f -> f.getTitle().length() > 5)
                 .collect(Collectors.toList());
+
+        movieList.forEach(p-> System.out.println(p.getTitle() + p.getPrice()));
+        movieList.forEach(System.out::println);
+
+        List<Movie> movieList1 = movies
+                .stream()
+                .filter(f->f.getPrice()>10)
+                .filter(f->f.getPrice()<30)
+                .collect(Collectors.toList());
+        movieList1.forEach(p-> System.out.println(p.getTitle()));
+
+
     }
 }
